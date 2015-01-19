@@ -1,0 +1,42 @@
+[submodule "thirdparty-bundle/unimpaired"]
+	path = thirdparty-bundle/unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "thirdparty-bundle/inccomplete"]
+	path = thirdparty-bundle/inccomplete
+	url = git@github.com:xaizek/vim-inccomplete.git
+[submodule "thirdparty-bundle/latex"]
+	path = thirdparty-bundle/latex
+	url = git://git.code.sf.net/p/vim-latex/vim-latex
+[submodule "thirdparty-bundle/fugitive"]
+	path = thirdparty-bundle/fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "thirdparty-bundle/easymotion"]
+	path = thirdparty-bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion
+[submodule "thirdparty-bundle/comments"]
+	path = thirdparty-bundle/comments
+	url = git@github.com:vim-scripts/comments.vim.git
+[submodule "thirdparty-bundle/conque-shell"]
+	path = thirdparty-bundle/conque-shell
+	url = git@github.com:oplatek/Conque-Shell.git
+[submodule "thirdparty-bundle/matchit"]
+	path = thirdparty-bundle/matchit
+	url = git@github.com:vim-scripts/matchit.zip.git
+[submodule "thirdparty-bundle/nerdtree"]
+	path = thirdparty-bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "thirdparty-bundle/python-syntax"]
+	path = thirdparty-bundle/python-syntax
+	url = git@github.com:hdima/python-syntax.git
+[submodule "thirdparty-bundle/synmark"]
+	path = thirdparty-bundle/synmark
+	url = git@github.com:vim-scripts/synmark.vim.git
+[submodule "thirdparty-bundle/abolish"]
+	path = thirdparty-bundle/abolish
+	url = git://github.com/tpope/vim-abolish.git
+[submodule "thirdparty-bundle/dispatch"]
+	path = thirdparty-bundle/dispatch
+	url = git://github.com/tpope/vim-dispatch.git
+[submodule "thirdparty-bundle/pathogen"]
+	path = thirdparty-bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
