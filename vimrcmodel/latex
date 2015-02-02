@@ -1,0 +1,25 @@
+" vim: syntax=vim
+
+let g:Tex_CompileRule_pdf="cd build && make"
+let g:Tex_UseMakefile=1
+set makeprg=cd\ build\ &&\ make
+
+"noremap ,mv :call RunMake("view-pdf", "&")<CR><CR>
+noremap ,mv :call RunMake("view", "&")<CR><CR>
+"noremap ,me :call RunMake("view-single", "&")<CR><CR>
+noremap ,mm :call RunMake("pdf")<CR>
+noremap ,mc :call RunMake("clean")<CR>
+"noremap ,ms :call RunMake("single")<CR>
+"noremap ,mb :call RunMake("bibtex")<CR>
+
+set path=,tex,bib,fig,alg
+set tags=tags
+
+let g:ctags_command="ctags -o tags -R *.tex alg/ bib/ fig/ img/ style.sty tex/"
+
+set foldenable
+set foldlevel=4
+set foldmethod=marker
+set foldmarker=<<<,>>>
+
+set tw=70

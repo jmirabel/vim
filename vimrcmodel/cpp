@@ -1,0 +1,31 @@
+" vim: syntax=vim
+
+" Set the path and exclude installed header files.
+" set path=include,src,tests,$DEVEL_DIR/install/include,/usr/include
+set path+=include path+=src path+=tests path+=$DEVEL_DIR/install/include
+"let &wildignore='**/install/include/'.substitute(expand('%:p:h:t'), '[-_]', '/', 'g').'/**,'.&wildignore
+
+
+set expandtab shiftwidth=2 tabstop=8
+let &titlestring = expand("%:p:h:t")
+set makeprg=cd\ build\ &&\ make
+
+"noremap ,mw :tabnew<CR>:tabmove 0<CR>
+noremap ,mm :call RunMake()<CR>
+noremap ,mi :call RunMake("install")<CR>
+noremap ,md :call RunMake("doc")<CR>
+noremap ,mu :call RunMake("uninstall")<CR>
+noremap ,mc :call RunMake("clean")<CR>
+noremap ,cc :call C_MyCppcheckCheck ()<CR>:call C_HlMessage ()<CR>
+
+let g:C_CppcheckFiles="include/ src/ tests/"
+let g:ctags_command="ctags --totals=yes -o tags -R src/ idl/ tests/ include/"
+
+" The first comment can be fold when 'foldmethod' is syntax
+autocmd Syntax c,cpp syntax region cCommentLicense start="^\s*//" end="\n\s*\(\S[^/]\|\_$\)"me=s,re=s,he=s fold
+autocmd Syntax c,cpp highlight def link cCommentLicense Comment
+
+autocmd Syntax c,cpp  set foldmethod=syntax sw=2 ts=8 colorcolumn=80,110
+autocmd Syntax python set foldmethod=indent sw=4 ts=4
+
+set foldlevelstart=3
