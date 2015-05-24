@@ -6,7 +6,7 @@
 	url = https://github.com/xaizek/vim-inccomplete.git
 [submodule "thirdparty-bundle/latex"]
 	path = thirdparty-bundle/latex
-	url = git://git.code.sf.net/p/vim-latex/vim-latex
+  url = https://github.com/vim-latex/vim-latex
 [submodule "thirdparty-bundle/fugitive"]
 	path = thirdparty-bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
