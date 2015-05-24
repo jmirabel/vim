@@ -43,3 +43,27 @@
 [submodule "thirdparty-bundle/c"]
 	path = thirdparty-bundle/c
 	url = https://github.com/vim-scripts/c.vim.git
+[submodule "thirdparty-bundle/phd"]
+	path = thirdparty-bundle/phd
+	url = https://github.com/vim-scripts/phd.git
+[submodule "thirdparty-bundle/goldenview"]
+	path = thirdparty-bundle/goldenview
+	url = https://github.com/zhaocai/GoldenView.Vim.git
+[submodule "thirdparty-bundle/gruvbox"]
+	path = thirdparty-bundle/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "thirdparty-bundle/syntastic"]
+	path = thirdparty-bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim-plugins"]
+	path = vim-plugins
+	url = https://github.com/WolfgangMehner/vim-plugins.git
+[submodule "thirdparty-bundle/vim-plugins"]
+	path = thirdparty-bundle/vim-plugins
+	url = https://github.com/WolfgangMehner/vim-plugins.git
+[submodule "cscope.vim"]
+	path = cscope.vim
+	url = https://github.com/brookhong/cscope.vim.git
+[submodule "thirdparty-bundle/cscope.vim"]
+	path = thirdparty-bundle/cscope.vim
+	url = https://github.com/brookhong/cscope.vim.git

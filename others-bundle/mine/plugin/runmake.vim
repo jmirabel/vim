@@ -10,7 +10,7 @@ function CheckChange()
   endwhile
 endfunction
 
-let g:RunMakeCommand = "Make"
+let g:RunMakeCommand = "make"
 
 function RunMake(...)
   if (CheckChange() == 0)

@@ -109,12 +109,14 @@ set completeopt=longest,menu
 set ts=2 sw=2 expandtab
 set nowrap
 
-"set path=.,../include,$DEVEL_DIR/install/include/,/usr/local/include,/usr/include,/usr/src/linux-headers-2.6.32-38/include,**
-
+" This is not working because the function netrwFileHandlers in
+" /usr/share/vim/vim73/autoload/netrwFileHandlers.vim is not working
+" as the documentation says.
+" let g:netrw_browsex_viewer = "xdg-open"
+nnoremap <silent> gx :silent exe "!xdg-open <cfile> &"<CR>:redraw!<CR>
 let g:tex_flavor='latex'
-
-" This commands creates a bug with vimdiff
-colorscheme desert
+let g:Tex_DefaultTargetFormat="pdf"
+let g:Tex_MultipleCompileFormats="div,pdf"
 
 " Set some shortcuts for tab navigation
 nnoremap th  :tabprev<CR>
@@ -147,90 +149,27 @@ vnoremap ,ev :exe join(getline("'<","'>"),'<Bar>')<CR>
 " Split line under cursor. (Use J to join line)
 nnoremap K i<CR><Esc>
 
+" Diff command
+nnoremap dp dp]c
+nnoremap dP dp
+nnoremap do do]c
+nnoremap dO do
 " In Command line mode, switch Space and Enter
 "cnoremap <Space> <Enter>
 "cnoremap <Enter> <Space>
 
-""""""
-"" Move to .vim/bundle-available/vim-easymotion/plugin/rc.vim
-""""""
-""" Check for changes. Returns 1 if at least one buffer has changed
-""" function CheckChange()
-"""   let i = 1
-"""   while i <= bufnr('$')
-"""     if (getbufvar(i, "&mod"))
-"""       echo "Buffer" i "(" bufname(i) ") has changed."
-"""       return 1
-"""     endif
-"""     let i = i + 1
-"""   endwhile
-""" endfunction
-""" 
-""" let g:RunMakeCommand = "Make"
-""" 
-""" function RunMake(...)
-"""   if (CheckChange() == 0)
-"""     let l:args = g:RunMakeCommand
-"""     for s in a:000
-"""       let args = args . " " . s
-"""     endfor
-"""     ":tabfirst
-"""     execute args 
-"""     :cwindow
-"""   endif
-""" endfunction
-""" 
-""" command Mktags if exists("ctags_command") && strlen(ctags_command)  | execute "!".g:ctags_command | endif
-""" noremap <silent> ,mt :Mktags<CR>
-
-"""""
-"" Move to .vim/bundle-available/pyclewn/plugin/rc.vim
-"""""
-""" function PyclewnMyMappings()
-"""   "exe "Cmapkeys"
-"""   map <C-P><C-P> :exe "Cprint " . expand("<cword>") <CR>
-"""   map <C-X><C-P> :exe "Cdbgvar " . expand("<cword>") <CR>
-""" 
-"""   " dereference
-"""   map <C-P><C-X> :exe "Cprint *" . expand("<cword>") <CR>
-"""   map <C-X><C-X> :exe "Cdbgvar *" . expand("<cword>") <CR>
-""" 
-"""   " std::vector
-"""   """ The following command must have been run. Put in .gdbinit for instance
-"""   """ source ~/.gdb/printers
-"""   map <C-P><C-V> :exe "C pvector ".expand("<cword>") <CR>
-"""   "map <C-P><C-V> :exe "Cprint *(double*)".expand("<cword>")."._M_impl._M_start@".expand("<cword>").".size()" <CR>
-"""   map <C-X><C-V> :exe "Cdbgvar *(double*)".expand("<cword>")."._M_impl._M_start@".expand("<cword>").".size()"
-""" 
-"""   " Eigen
-"""   map <C-P><C-E> :exe "Cprint *(double*)".expand("<cword>").".m_data@".expand("<cword>").".size()"
-"""   map <C-X><C-E> :exe "Cdbgvar *(double*)".expand("<cword>").".m_data@".expand("<cword>").".size()"
-""" 
-"""   " boost
-"""   """ The following commands must have been run. Put in .gdbinit for instance
-"""   """python import; sys sys.path.append('/home/jmirabel/.gdb/py'); import displayer
-"""   map <C-P><C-B> :exe "C display_variable ".expand("<cword>") <CR>
-"""   "map <C-P><C-B> :exe "Cprint *(double*)".expand("<cword>").".data_.data_@".expand("<cword>").".data_.size_" <CR>
-"""   map <C-X><C-B> :exe "Cdbgvar *(double*)".expand("<cword>").".data_.data_@".expand("<cword>").".data_.size_" <CR>
-""" endfunction
-""" command Cmymapkeys call PyclewnMyMappings()
-""" 
-""" function LaunchxTerm()
-"""   exe "Cshell setsid xterm -e inferior_tty.py &"
-"""   call inputsave()
-"""   let tty = input('Enter tty name: ', '/dev/pts/', 'file')
-"""   call inputrestore()
-"""   exe "Cset inferior-tty ".tty
-"""   exe "sleep 10m"
-"""   exe "Cset environment TERM = xterm"
-""" endfunction
-""" command ClaunchxTerm call LaunchxTerm()
-
 " Execute pathogen
 execute pathogen#infect()
 
+" This colorscheme is not very convenient with python.
+colorscheme phd
+autocmd Syntax python colorscheme desert
+
 " Repeat last command 
 nmap c @
+
+" match PendingWhitespace /\s\+$/
+" match ExtraWhitespace /[^^ ]\zs  \+/
 
 set exrc
 "if filereadable(".vimdirrc")
