@@ -67,3 +67,6 @@
 [submodule "thirdparty-bundle/cscope.vim"]
 	path = thirdparty-bundle/cscope.vim
 	url = https://github.com/brookhong/cscope.vim.git
+[submodule "thirdparty-bundle/vim-cmake"]
+	path = thirdparty-bundle/vim-cmake
+	url = https://github.com/vhdirk/vim-cmake.git
