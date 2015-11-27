@@ -8,6 +8,8 @@ set path+=include path+=src path+=tests path+=$DEVEL_DIR/install/include
 
 set expandtab shiftwidth=2 tabstop=8
 let &titlestring = expand("%:p:h:t")
+let g:cmake_install_prefix="$DEVEL_DIR/install"
+let g:cmake_build_dir='build'
 " This might be reset by the vim-cmake bundle
 set makeprg=cd\ build\ &&\ make
 
