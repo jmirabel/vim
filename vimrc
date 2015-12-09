@@ -158,6 +158,9 @@ nnoremap dO do
 "cnoremap <Space> <Enter>
 "cnoremap <Enter> <Space>
 
+" Pyclewn settings
+let g:pyclewn_args="--window=usetab"
+
 " Execute pathogen
 execute pathogen#infect()
 
