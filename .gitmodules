@@ -73,3 +73,6 @@
 [submodule "thirdparty-bundle/vim-git-log"]
 	path = thirdparty-bundle/vim-git-log
 	url = https://github.com/kablamo/vim-git-log.git
+[submodule "thirdparty-bundle/FastFold"]
+	path = thirdparty-bundle/FastFold
+	url = https://github.com/Konfekt/FastFold.git
