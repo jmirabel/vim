@@ -26,7 +26,8 @@ noremap ,msi :call RunMake("-s install")<CR>
 noremap ,msd :call RunMake("doc")<CR>
 noremap ,msu :call RunMake("-s uninstall")<CR>
 noremap ,msc :call RunMake("-s clean")<CR>
-noremap ,cc :call C_MyCppcheckCheck ()<CR>:call C_HlMessage ()<CR>
+noremap ,cc :call C_CppcheckCheck ()<CR>:call C_HlMessage ()<CR>
+noremap ,cs :SyntasticCheck<CR>
 
 let g:C_CppcheckFiles="include/ src/ tests/"
 let g:ctags_command="find . -type f -regextype posix-egrep -regex '.*\.(cc?|.cpp|.hpp|hh?)$' -and -not -path '*/cmake/*' -and -not -path '*/.git/*' -and -not -path '*/build/*' | ctags --totals=yes --sort=foldcase -o tags -L-"
