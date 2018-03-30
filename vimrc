@@ -165,8 +165,7 @@ let g:pyclewn_args="--window=usetab"
 execute pathogen#infect()
 
 " This colorscheme is not very convenient with python.
-colorscheme phd
-autocmd Syntax python colorscheme desert
+colorscheme torte
 
 " Repeat last command 
 nmap c @
@@ -176,8 +175,24 @@ nmap c @
 
 set exrc
 
+" Syntastic settings
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { "mode": "passive" }
+" let g:syntastic_cpp_checkers = ["g++"]
+
+autocmd FileType python nnoremap <buffer> ,mr :exec '!ipython' shellescape(@%, 1)<cr>
+autocmd FileType python nnoremap <buffer> ,mR :exec '!hpprestart && ipython' shellescape(@%, 1)<cr>
+autocmd FileType python nnoremap <buffer> ,mir :exec '!ipython -i' shellescape(@%, 1)<cr>
+autocmd FileType python nnoremap <buffer> ,miR :exec '!hpprestart && ipython -i' shellescape(@%, 1)<cr>
+
+let g:cscope_silent=1
 
 " vim:foldmethod=indent
