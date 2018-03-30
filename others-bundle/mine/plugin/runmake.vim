@@ -13,6 +13,9 @@ endfunction
 let g:RunMakeCommand = "make"
 
 function RunMake(...)
+  if exists('g:MakeBuildDirectory')
+    let &makeprg="make -C " . g:MakeBuildDirectory
+  endif
   if (CheckChange() == 0)
     let l:args = g:RunMakeCommand
     for s in a:000
