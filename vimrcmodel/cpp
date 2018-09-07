@@ -25,7 +25,13 @@ endif
 
 " This might be reset by the vim-cmake bundle
 " set makeprg=cd\ build\ &&\ make
-let g:MakeBuildDirectory = "build"
+if isdirectory("build-rel")
+  let g:MakeBuildDirectory = "build-rel"
+else
+  if isdirectory("build")
+    let g:MakeBuildDirectory = "build"
+  endif
+endif
 let g:MakeDefaultTarget = ""
 
 "noremap ,mw :tabnew<CR>:tabmove 0<CR>
@@ -47,7 +53,7 @@ noremap ,cs :SyntasticCheck<CR>
 
 let g:C_CppcheckFiles="include/ src/ tests/"
 "let g:ctags_command="ctags --totals=yes -o tags --recurse=yes src/ idl/ tests/ include/"
-let g:ctags_command="find . -type f -regextype posix-egrep -regex '.*\.(cc?|.cpp|.hpp|.hxx|hh?)$' -and -not -path '*/cmake/*' -and -not -path '*/.git/*' -and -not -path '*/build*' | ctags --totals=yes --sort=foldcase -o tags -L-"
+let g:ctags_command="find . -type f -regextype posix-egrep -regex '.*\.(cc?|.cpp|.hpp|.hxx|hh?|.py)$' -and -not -path '*/cmake/*' -and -not -path '*/.git/*' -and -not -path '*/build*' | ctags --totals=yes --sort=foldcase -o tags -L-"
 
 " The first comment can be fold when 'foldmethod' is syntax
 " autocmd Syntax c,cpp,idl syntax region cCommentLicense start="^\s*//" end="\n\s*\(\S[^/]\|\_$\)"me=s,re=s,he=s fold
