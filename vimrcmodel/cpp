@@ -1,14 +1,14 @@
 " vim: syntax=vim
 
 " Set the path and exclude installed header files.
-" set path=include,src,tests,$DEVEL_DIR/install/include,/usr/include
-set path+=include path+=src path+=tests path+=$DEVEL_DIR/install/include
+" set path=include,src,tests,$DEVEL_HPP_DIR/install/include,/usr/include
+set path+=include path+=src path+=tests path+=$DEVEL_HPP_DIR/install/include
 "let &wildignore='**/install/include/'.substitute(expand('%:p:h:t'), '[-_]', '/', 'g').'/**,'.&wildignore
 
 
 set expandtab shiftwidth=2 tabstop=8
 let &titlestring = expand("%:p:h:t")
-let g:cmake_install_prefix="$DEVEL_DIR/install"
+let g:cmake_install_prefix="$DEVEL_HPP_DIR/install"
 let g:cmake_build_dir='build'
 if hostname() == 'santiago'
   let g:number_processor=3
@@ -61,7 +61,7 @@ let g:ctags_command="find . -type f -regextype posix-egrep -regex '.*\.(cc?|.cpp
 
 autocmd Syntax c,cpp,idl  set foldmethod=syntax sw=2 ts=8 colorcolumn=80,110
 autocmd Syntax python set foldmethod=indent sw=4 ts=4
-autocmd FileType cpp let g:syntastic_cpp_include_dirs=[$DEVEL_DIR."/install/include",$DEVEL_DIR."/install/include/eigen3","/usr/include/"]
+autocmd FileType cpp let g:syntastic_cpp_include_dirs=[$DEVEL_HPP_DIR."/install/include",$DEVEL_HPP_DIR."/install/include/eigen3","/usr/include/"]
 
 highlight PendingWhitespace ctermbg=red guibg=lightred
 match PendingWhitespace /\s\+$/
