@@ -76,3 +76,12 @@
 [submodule "thirdparty-bundle/FastFold"]
 	path = thirdparty-bundle/FastFold
 	url = https://github.com/Konfekt/FastFold.git
+[submodule "thirdparty-bundle/gcov-marker"]
+	path = thirdparty-bundle/gcov-marker
+	url = https://github.com/m42e/vim-gcov-marker
+[submodule "bundle/vim-clang-format"]
+	path = bundle/vim-clang-format
+	url = https://github.com/rhysd/vim-clang-format
+[submodule "thirdparty-bundle/jedi-vim"]
+	path = thirdparty-bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim

@@ -6,7 +6,8 @@ set path+=include path+=src path+=tests path+=$DEVEL_HPP_DIR/install/include
 "let &wildignore='**/install/include/'.substitute(expand('%:p:h:t'), '[-_]', '/', 'g').'/**,'.&wildignore
 
 
-set expandtab shiftwidth=2 tabstop=8
+set expandtab shiftwidth=2 tabstop=8 cino=N-s cino=l1 cino=g0 cino=E-s
+
 let &titlestring = expand("%:p:h:t")
 let g:cmake_install_prefix="$DEVEL_HPP_DIR/install"
 let g:cmake_build_dir='build'
@@ -30,6 +31,19 @@ if isdirectory("build-rel")
 else
   if isdirectory("build")
     let g:MakeBuildDirectory = "build"
+  else
+    let cwd=fnamemodify(getcwd(), ":t")
+    let ws=fnamemodify(getcwd()."/../../", ":p")
+    let bdir=ws."/build/".cwd
+    if isdirectory(bdir)
+      let g:MakeBuildDirectory = bdir
+    else
+      let cwd=substitute(cwd, "-", "_", "g")
+      let bdir=ws."/build/".cwd
+      if isdirectory(bdir)
+        let g:MakeBuildDirectory = bdir
+      endif
+    endif
   endif
 endif
 let g:MakeDefaultTarget = ""
@@ -38,22 +52,24 @@ let g:MakeDefaultTarget = ""
 noremap ,mm :call RunMake(g:MakeDefaultTarget)<CR>
 noremap ,mq :call RunMake("-j".g:number_processor, g:MakeDefaultTarget)<CR>
 noremap ,mi :call RunMake("install")<CR>
-noremap ,md :call RunMake("doc")<CR>
+noremap ,md :call RunMakeDoc()<CR>
 noremap ,mu :call RunMake("uninstall")<CR>
 noremap ,mc :call RunMake("clean")<CR>
+noremap ,mv :call RunMake("build_tests")<CR>
 noremap ,msm :call RunMake("-s", g:MakeDefaultTarget)<CR>
 " noremap ,msq :call RunMake("-s -j4")<CR>
 noremap ,msq :call RunMake("-s", "-j".g:number_processor, g:MakeDefaultTarget)<CR>
 noremap ,msi :call RunMake("-s", "install")<CR>
-noremap ,msd :call RunMake("doc")<CR>
+noremap ,msd :call RunMakeDoc("-s")<CR>
 noremap ,msu :call RunMake("-s", "uninstall")<CR>
 noremap ,msc :call RunMake("-s", "clean")<CR>
+noremap ,msv :call RunMake("-s", "build_tests")<CR>
 noremap ,cc :call C_CppcheckCheck ()<CR>:call C_HlMessage ()<CR>
 noremap ,cs :SyntasticCheck<CR>
 
 let g:C_CppcheckFiles="include/ src/ tests/"
 "let g:ctags_command="ctags --totals=yes -o tags --recurse=yes src/ idl/ tests/ include/"
-let g:ctags_command="find . -type f -regextype posix-egrep -regex '.*\.(cc?|.cpp|.hpp|.hxx|hh?|.py)$' -and -not -path '*/cmake/*' -and -not -path '*/.git/*' -and -not -path '*/build*' | ctags --totals=yes --sort=foldcase -o tags -L-"
+let g:ctags_command="find . -type f -regextype posix-egrep -regex '.*\.(cc?|cpp|hpp|hxx|hh?|py)$' -and -not -path '*/cmake/*' -and -not -path '*/.git/*' -and -not -path '*/build*' | ctags --totals=yes --sort=foldcase -o tags --c++-kinds=+p --fields=+iaS --extra=+q -L-"
 
 " The first comment can be fold when 'foldmethod' is syntax
 " autocmd Syntax c,cpp,idl syntax region cCommentLicense start="^\s*//" end="\n\s*\(\S[^/]\|\_$\)"me=s,re=s,he=s fold

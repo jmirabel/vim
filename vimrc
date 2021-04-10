@@ -193,6 +193,14 @@ autocmd FileType python nnoremap <buffer> ,mR :exec '!hpprestart && ipython' she
 autocmd FileType python nnoremap <buffer> ,mir :exec '!ipython -i' shellescape(@%, 1)<cr>
 autocmd FileType python nnoremap <buffer> ,miR :exec '!hpprestart && ipython -i' shellescape(@%, 1)<cr>
 
+" au Syntax * syn match doxygenTodo "\todo" contained
+" hi def link doxygenTodo Todo
+autocmd Syntax c,cpp syn keyword cTodo contained TODO FIXME XXX todo
+autocmd Syntax python syn keyword pythonTodo FIXME NOTE NOTES TODO todo XXX contained
+
+" Highlight unbreakable space
+match ErrorMsg " "
+
 let g:cscope_silent=1
 
 " vim:foldmethod=indent
