@@ -11,6 +11,7 @@ function CheckChange()
 endfunction
 
 let g:RunMakeCommand = "make"
+let g:MakeDocLog = "doc/doxygen.log"
 
 function RunMake(...)
   if exists('g:MakeBuildDirectory')
@@ -24,6 +25,15 @@ function RunMake(...)
     ":tabfirst
     execute args 
     :cwindow
+  endif
+endfunction
+
+function RunMakeDoc(...)
+  call RunMake(a:000, "doc")
+  if exists('g:MakeBuildDirectory')
+    execute ":cfile " . g:MakeBuildDirectory . "/" . g:MakeDocLog
+  else
+    execute ":cfile " . g:MakeDocLog
   endif
 endfunction
 
