@@ -88,3 +88,6 @@
 [submodule "thirdparty-bundle/vim-markdown-toc"]
 	path = thirdparty-bundle/vim-markdown-toc
 	url = https://github.com/mzlogin/vim-markdown-toc
+[submodule "thirdparty-bundle/black"]
+	path = thirdparty-bundle/black
+	url = git@github.com:psf/black
