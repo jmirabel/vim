@@ -10,7 +10,9 @@ function CheckChange()
   endwhile
 endfunction
 
-let g:RunMakeCommand = "make"
+if ! exists('g:RunMakeCommand')
+  let g:RunMakeCommand = "make"
+endif
 let g:MakeDocLog = "doc/doxygen.log"
 
 function RunMake(...)

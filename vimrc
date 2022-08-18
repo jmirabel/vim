@@ -202,5 +202,7 @@ autocmd Syntax python syn keyword pythonTodo FIXME NOTE NOTES TODO todo XXX cont
 match ErrorMsg " "
 
 let g:cscope_silent=1
+let g:pyindent_open_paren = 'shiftwidth()'
+let g:pyindent_continue = 'shiftwidth()'
 
 " vim:foldmethod=indent

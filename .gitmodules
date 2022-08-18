@@ -85,3 +85,6 @@
 [submodule "thirdparty-bundle/jedi-vim"]
 	path = thirdparty-bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim
+[submodule "thirdparty-bundle/vim-markdown-toc"]
+	path = thirdparty-bundle/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc

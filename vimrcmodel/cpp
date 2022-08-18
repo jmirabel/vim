@@ -26,7 +26,9 @@ endif
 
 " This might be reset by the vim-cmake bundle
 " set makeprg=cd\ build\ &&\ make
-if isdirectory("build-rel")
+if filereadable(".vimrc_runmake")
+  source .vimrc_runmake
+elseif isdirectory("build-rel")
   let g:MakeBuildDirectory = "build-rel"
 else
   if isdirectory("build")
